@@ -59,27 +59,19 @@
 .todocompact__todo__title--s4ufZ {
   font-weight: var(--font-weight-bold);
 }
-.todocompact__todo__dueDate--1zTWk {
-  font-weight: var(--font-weight-light);
-  color: var(--light);
+.todocompact__todo--V3o8e {
+}
+.todocompact__todo--V3o8e[data-project="General"] {
+  border-left: solid 1px var(--a);
+}
+.todocompact__todo--V3o8e[data-project="Check"] {
+  border-left: solid 1px var(--b);
 }
 .todocompact__todo__link--3m__D {
   color: var(--a);
   text-decoration: none;
   display: inline-block;
   margin: 1em;
-}
-.todocompact__todo__note--173Gm {
-
-}
-.todocompact__todo__updateTodo--1d9QJ {
-  padding: .5rem 1rem;
-  background-color: var(--a);
-  color: var(--a-contrast);
-  border-radius: var(--radius);
-  border: 0;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
 }
 .is-completed {
   background-color: var(--c);

@@ -17,10 +17,9 @@ class App extends Component {
   state = {
     todos: [],
     activePage: 'home',
-    viewData: {}
+    viewData: {},
+    id: 0
   };
-
-  id = 0;
 
   updateLocalStorage = (currentState, newState, localStorageKey = 'checktodo') => {
     window.localStorage.setItem(localStorageKey, JSON.stringify(Object.assign({}, currentState, newState)));
@@ -34,12 +33,13 @@ class App extends Component {
   }
 
   // actions
-  generateTodo = (title, note, dueDate, createdDate = new Date(), id = this.id++) => {
+  generateTodo = (title, note, dueDate, tag, createdDate = new Date(), id = this.state.id++) => {
     this.addTodo({
       id,
       title,
       note,
       dueDate,
+      tag,
       createdDate,
       completed: false
     });
@@ -100,7 +100,7 @@ class App extends Component {
     } = this.state;
     return (
       <div>
-        <Header navigate={this.navigate} />
+        <Header navigate={this.changeView} />
         <View visible={activePage === 'home'}>
           <Home todos={todos} navigate={this.changeView} updateTodo={this.markTodoAsDone} removeTodo={this.removeTodo} />
         </View>

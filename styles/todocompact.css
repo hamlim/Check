@@ -10,9 +10,14 @@
 .todo__title {
   font-weight: var(--font-weight-bold);
 }
-.todo__dueDate {
-  font-weight: var(--font-weight-light);
-  color: var(--light);
+
+.todo {
+  &[data-project="General"] {
+    border-left: solid 1px var(--a);
+  }
+  &[data-project="Check"] {
+    border-left: solid 1px var(--b);
+  }
 }
 
 .todo__link {
@@ -22,18 +27,6 @@
   margin: 1em;
 }
 
-.todo__note {
-
-}
-
-.todo__updateTodo {
-  padding: .5rem 1rem;
-  background-color: var(--a);
-  color: var(--a-contrast);
-  border-radius: var(--radius);
-  border: 0;
-  align-self: flex-end;
-}
 
 :global(.is-completed) {
   background-color: var(--c);

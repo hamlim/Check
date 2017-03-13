@@ -6,7 +6,7 @@ class Add extends Component {
       addTodo,
       navigate
     } = this.props;
-    let title, note, dueDate;
+    let title, note, dueDate, tag;
     return (
       <div>
         <h1>Add a Todo:</h1>
@@ -23,8 +23,15 @@ class Add extends Component {
             Due Date:
             <input type="date" ref={node => dueDate = node} id="dueDate" />
           </label>
+          <label htmlFor="project">
+            Project: 
+            <select id="project" ref={node => tag = node}>
+              <option value="General">General</option>
+              <option value="Check">Check</option>
+            </select>
+          </label>
           <button type="button" onClick={() => {
-            addTodo(title.value, note.value, dueDate.value);
+            addTodo(title.value, note.value, dueDate.value, tag.value);
             title.view = note.view = dueDate.value = '';
             navigate('home');
           }}>Add Todo</button>

@@ -9479,7 +9479,8 @@ var Add = function (_Component) {
 
       var title = void 0,
           note = void 0,
-          dueDate = void 0;
+          dueDate = void 0,
+          tag = void 0;
       return _react2.default.createElement(
         "div",
         null,
@@ -9516,9 +9517,30 @@ var Add = function (_Component) {
               }, id: "dueDate" })
           ),
           _react2.default.createElement(
+            "label",
+            { htmlFor: "project" },
+            "Project:",
+            _react2.default.createElement(
+              "select",
+              { id: "project", ref: function ref(node) {
+                  return tag = node;
+                } },
+              _react2.default.createElement(
+                "option",
+                { value: "General" },
+                "General"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "Check" },
+                "Check"
+              )
+            )
+          ),
+          _react2.default.createElement(
             "button",
             { type: "button", onClick: function onClick() {
-                addTodo(title.value, note.value, dueDate.value);
+                addTodo(title.value, note.value, dueDate.value, tag.value);
                 title.view = note.view = dueDate.value = '';
                 navigate('home');
               } },
@@ -21975,9 +21997,9 @@ var App = function (_Component) {
     _this.state = {
       todos: [],
       activePage: 'home',
-      viewData: {}
+      viewData: {},
+      id: 0
     };
-    _this.id = 0;
 
     _this.updateLocalStorage = function (currentState, newState) {
       var localStorageKey = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'checktodo';
@@ -21994,15 +22016,16 @@ var App = function (_Component) {
       _this.setState(newState);
     };
 
-    _this.generateTodo = function (title, note, dueDate) {
-      var createdDate = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : new Date();
-      var id = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : _this.id++;
+    _this.generateTodo = function (title, note, dueDate, tag) {
+      var createdDate = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : new Date();
+      var id = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : _this.state.id++;
 
       _this.addTodo({
         id: id,
         title: title,
         note: note,
         dueDate: dueDate,
+        tag: tag,
         createdDate: createdDate,
         completed: false
       });
@@ -22066,7 +22089,7 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_header2.default, { navigate: _this.navigate }),
+        _react2.default.createElement(_header2.default, { navigate: _this.changeView }),
         _react2.default.createElement(
           _view2.default,
           { visible: activePage === 'home' },
@@ -22200,44 +22223,41 @@ var TodoCompact = function TodoCompact(_ref) {
       removeTodo = _ref.removeTodo,
       navigate = _ref.navigate;
 
-  var wrapper = void 0,
-      check = void 0;
+  var wrapper = void 0;
   return _react2.default.createElement(
     'li',
     { ref: function ref(node) {
         return wrapper = node;
       }, className: _todocompact2.default.todoWrapper },
     _react2.default.createElement(
-      'h4',
-      { className: _todocompact2.default.todo__title },
-      todo.title
-    ),
-    _react2.default.createElement(
-      'button',
-      { type: 'button', className: _todocompact2.default.todo__updateTodo, onClick: function onClick() {
+      'label',
+      {
+        htmlFor: todo.id,
+        className: _todocompact2.default.todo,
+        'data-project': todo.tag
+      },
+      _react2.default.createElement('input', {
+        type: 'checkbox',
+        className: _todocompact2.default.todo__checkbox,
+        id: todo.id,
+        onChange: function onChange() {
           updateTodo(todo);
           wrapper.classList.toggle('is-completed');
-          check.src = check.src === 'https://icon.now.sh/check' ? 'https://icon.now.sh/refresh' : 'https://icon.now.sh/check';
-        } },
-      _react2.default.createElement('img', { ref: function ref(node) {
-          return check = node;
-        }, src: 'https://icon.now.sh/check', alt: 'Mark as Done' })
-    ),
-    _react2.default.createElement(
-      'button',
-      { type: 'button', className: _todocompact2.default.todo__updateTodo, onClick: function onClick() {
-          removeTodo(todo);
         }
-      },
-      _react2.default.createElement('img', { src: 'https://icon.now.sh/trash/ffffff', alt: 'Remove Todo' })
-    ),
-    _react2.default.createElement(
-      'a',
-      { href: '#', className: _todocompact2.default.todo__link, onClick: function onClick(e) {
-          e.preventDefault();
-          navigate('todo', todo);
-        } },
-      'Expand Todo'
+      }),
+      _react2.default.createElement(
+        'h4',
+        { className: _todocompact2.default.todo__title },
+        todo.title
+      ),
+      _react2.default.createElement(
+        'a',
+        { href: '#', className: _todocompact2.default.todo__link, onClick: function onClick(e) {
+            e.preventDefault();
+            navigate('todo', todo);
+          } },
+        'Expand Todo'
+      )
     )
   );
 };
@@ -22249,7 +22269,7 @@ exports.default = TodoCompact;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"todoWrapper":"todocompact__todoWrapper--1w5UI","todo__title":"todocompact__todo__title--s4ufZ","todo__dueDate":"todocompact__todo__dueDate--1zTWk","todo__link":"todocompact__todo__link--3m__D","todo__note":"todocompact__todo__note--173Gm","todo__updateTodo":"todocompact__todo__updateTodo--1d9QJ"};
+module.exports = {"todoWrapper":"todocompact__todoWrapper--1w5UI","todo__title":"todocompact__todo__title--s4ufZ","todo":"todocompact__todo--V3o8e","todo__link":"todocompact__todo__link--3m__D"};
 
 /***/ }),
 /* 193 */,
