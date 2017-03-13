@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 
+import Header from './header';
 import View from './view';
-
 import Home from './home';
-
 import Add from './add';
+import Todo from './todo.js';
 
 import './styles/vars.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class App extends Component {
   }
   state = {
     todos: [],
-    activePage: 'home'
+    activePage: 'home',
+    viewData: {}
   };
 
   id = 0;
@@ -65,9 +67,19 @@ class App extends Component {
     this.updateStore(this.state, newState);
   }
 
-  changeView = (toView) => {
+  removeTodo = (todo) => {
+    let newState = {
+      todos: this.state.todos.filter(t => {
+        return t.id !== todo.id;
+      })
+    };
+    this.updateStore(this.state, newState);
+  }
+
+  changeView = (toView, viewData = {}) => {
     this.updateStore(this.state, {
-      activePage: toView
+      activePage: toView,
+      viewData: viewData
     });
   }
 
@@ -83,15 +95,20 @@ class App extends Component {
   render = () => {
     let {
       todos,
-      activePage
+      activePage,
+      viewData
     } = this.state;
     return (
       <div>
+        <Header navigate={this.navigate} />
         <View visible={activePage === 'home'}>
-          <Home todos={todos} navigate={this.changeView} updateTodo={this.markTodoAsDone} />
+          <Home todos={todos} navigate={this.changeView} updateTodo={this.markTodoAsDone} removeTodo={this.removeTodo} />
         </View>
         <View visible={activePage === 'add'}>
           <Add addTodo={this.generateTodo} navigate={this.changeView} />
+        </View>
+        <View visible={activePage === 'todo'}>
+          <Todo todo={viewData} navigate={this.changeView} />
         </View>
       </div>
     )

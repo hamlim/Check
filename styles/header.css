@@ -1,0 +1,32 @@
+.header {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--offwhite);
+  box-shadow: 1px 0 1em .2em var(--a);
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.header__svgWrap {
+  height: 3rem;
+  width: 3rem;
+}
+.header__svgCircle {
+  fill: var(--offwhite);
+}
+
+.header__svgCheck {
+  stroke: var(--c);
+  fill: transparent;
+}
+.header__svgCheck2 {
+  fill: transparent;
+  stroke: var(--b);
+}
+.header__svgCheck3 {
+  fill: transparent;
+  stroke: var(--a);
+}
