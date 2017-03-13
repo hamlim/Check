@@ -1,0 +1,50 @@
+:root {
+  --white: white;
+  --offwhite: #fcfcfc;
+  --light: color(white blackness(30%));
+  --a: #1fdda4;
+  --a-contrast: color(#1fdda4 contrast(30%));
+  --a-muted: color(#1fdda4 lightness(+ 10%));
+  --b: #e084f9;
+  --b-contrast: color(#e084f9 contrast(30%));
+  --b-muted: color(#e084f9 lightness(+ 10%));
+  --c: #f77c74;
+  --c-contrast: color(#f77c74 contrast(30%));
+  --c-muted: color(#f77c74 lightness(+ 10%));
+  --d: #2e94d3;
+  --d-contrast: color(#2e94d3 contrast(30%));
+  --d-muted: color(#2e94d3 lightness(+ 10%));
+  --e: #e57999;
+  --e-contrast: color(#e57999 contrast(30%));
+  --e-muted: color(#e57999 lightness(+ 10%));
+  --radius: 4px;
+  --spacing: .5rem;
+  --spacing-2: 1rem;
+  --spacing-3: 1.5rem;
+  --spacing-4: 2rem;
+
+  --font-weight-bold: 700;
+  --font-weight-light: 200;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  font-family: -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Roboto,
+              Oxygen-Sans,
+              Ubuntu,
+              Cantarell,
+              "Helvetica Neue",
+              sans-serif;
+  background-color: var(--offwhite);
+}

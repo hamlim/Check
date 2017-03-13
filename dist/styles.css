@@ -1,0 +1,88 @@
+.todo__todoWrapper--26rS- {
+  -webkit-transition: background-color .3s ease-in-out;
+  transition: background-color .3s ease-in-out;
+  max-width: 90vw;
+  margin: var(--spacing) auto;
+  background-color: var(--white);
+  padding: var(--spacing);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.todo__todo__title--35Pz0 {
+  font-weight: var(--font-weight-bold);
+}
+.todo__todo__dueDate--dftSL {
+  font-weight: var(--font-weight-light);
+  color: var(--light);
+}
+.todo__todo__note--1OIXb {
+
+}
+.todo__todo__updateTodo--3NVm2 {
+  padding: .5rem 1rem;
+  background-color: var(--a);
+  color: var(--a-contrast);
+  border-radius: var(--radius);
+  border: 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.is-completed {
+  background-color: var(--c);
+}.home__home__todosWrapper--1U73q {
+  list-style: none;
+}:root {
+  --white: white;
+  --offwhite: #fcfcfc;
+  --light: rgb(196, 196, 196);
+  --a: #1fdda4;
+  --a-contrast: rgb(10, 64, 48);
+  --a-muted: rgb(72, 229, 182);
+  --b: #e084f9;
+  --b-contrast: rgb(255, 255, 255);
+  --b-muted: rgb(236, 182, 252);
+  --c: #f77c74;
+  --c-contrast: rgb(255, 255, 255);
+  --c-muted: rgb(250, 169, 163);
+  --d: #2e94d3;
+  --d-contrast: rgb(255, 255, 255);
+  --d-muted: rgb(87, 168, 219);
+  --e: #e57999;
+  --e-contrast: rgb(255, 255, 255);
+  --e-muted: rgb(238, 165, 187);
+  --radius: 4px;
+  --spacing: .5rem;
+  --spacing-2: 1rem;
+  --spacing-3: 1.5rem;
+  --spacing-4: 2rem;
+
+  --font-weight-bold: 700;
+  --font-weight-light: 200;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  font-family: -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Roboto,
+              Oxygen-Sans,
+              Ubuntu,
+              Cantarell,
+              "Helvetica Neue",
+              sans-serif;
+  background-color: var(--offwhite);
+}

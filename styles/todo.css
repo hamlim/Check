@@ -1,0 +1,33 @@
+.todoWrapper {
+  transition: background-color .3s ease-in-out;
+  max-width: 90vw;
+  margin: var(--spacing) auto;
+  background-color: var(--white);
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+}
+.todo__title {
+  font-weight: var(--font-weight-bold);
+}
+.todo__dueDate {
+  font-weight: var(--font-weight-light);
+  color: var(--light);
+}
+
+.todo__note {
+
+}
+
+.todo__updateTodo {
+  padding: .5rem 1rem;
+  background-color: var(--a);
+  color: var(--a-contrast);
+  border-radius: var(--radius);
+  border: 0;
+  align-self: flex-end;
+}
+
+:global(.is-completed) {
+  background-color: var(--c);
+}
