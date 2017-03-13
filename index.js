@@ -29,7 +29,9 @@ class App extends Component {
   updateStore = (currentState = this.state, newState) => {
     console.log(newState);
     this.updateLocalStorage(currentState, newState);
-    this.setState(newState);
+    window.setTimeout(() => {
+      this.setState(newState);
+    }, 50);
   }
 
   // actions
@@ -85,9 +87,11 @@ class App extends Component {
 
   componentWillMount = () => {
     if (window.localStorage) {
-      let localStore = JSON.parse(window.localStorage.getItem('checktodo'));
-      if (localStore !== {} ) {
-        this.updateStore(this.state, localStore);
+      if (window.localStorage.getItem('checktodo') !== '') {
+        let localStore = JSON.parse(window.localStorage.getItem('checktodo'));
+        if (localStore !== {} ) {
+          this.updateStore(this.state, localStore);
+        }
       }
     }
   }

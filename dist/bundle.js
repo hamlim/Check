@@ -22013,7 +22013,9 @@ var App = function (_Component) {
 
       console.log(newState);
       _this.updateLocalStorage(currentState, newState);
-      _this.setState(newState);
+      window.setTimeout(function () {
+        _this.setState(newState);
+      }, 50);
     };
 
     _this.generateTodo = function (title, note, dueDate, tag) {
@@ -22073,9 +22075,11 @@ var App = function (_Component) {
 
     _this.componentWillMount = function () {
       if (window.localStorage) {
-        var localStore = JSON.parse(window.localStorage.getItem('checktodo'));
-        if (localStore !== {}) {
-          _this.updateStore(_this.state, localStore);
+        if (window.localStorage.getItem('checktodo') !== '') {
+          var localStore = JSON.parse(window.localStorage.getItem('checktodo'));
+          if (localStore !== {}) {
+            _this.updateStore(_this.state, localStore);
+          }
         }
       }
     };

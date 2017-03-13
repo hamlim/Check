@@ -3,7 +3,6 @@
   max-width: 90vw;
   margin: var(--spacing) auto;
   background-color: var(--white);
-  padding: var(--spacing);
   display: flex;
   flex-direction: column;
 }
@@ -12,11 +11,12 @@
 }
 
 .todo {
+  padding: var(--spacing);
   &[data-project="General"] {
-    border-left: solid 1px var(--a);
+    border-left: solid 3px var(--a);
   }
   &[data-project="Check"] {
-    border-left: solid 1px var(--b);
+    border-left: solid 3px var(--b);
   }
 }
 

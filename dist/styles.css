@@ -47,7 +47,6 @@
   max-width: 90vw;
   margin: var(--spacing) auto;
   background-color: var(--white);
-  padding: var(--spacing);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,12 +59,13 @@
   font-weight: var(--font-weight-bold);
 }
 .todocompact__todo--V3o8e {
+  padding: var(--spacing)
 }
 .todocompact__todo--V3o8e[data-project="General"] {
-  border-left: solid 1px var(--a);
+  border-left: solid 3px var(--a);
 }
 .todocompact__todo--V3o8e[data-project="Check"] {
-  border-left: solid 1px var(--b);
+  border-left: solid 3px var(--b);
 }
 .todocompact__todo__link--3m__D {
   color: var(--a);
